@@ -5,13 +5,13 @@ import json
 from collections import defaultdict
 
 from sc2reader import log_utils
-from sc2reader.utils import Length
-from sc2reader.factories.plugins.utils import PlayerSelection, GameState, JSONDateEncoder, plugin
+from sc2reader.utils import Length, JSONEncoder
+from sc2reader.factories.plugins.utils import PlayerSelection, GameState, plugin
 
 
 @plugin
 def toJSON(replay, **user_options):
-    options = dict(cls=JSONDateEncoder)
+    options = dict(cls=JSONEncoder)
     options.update(user_options)
     obj = toDict()(replay)
     return json.dumps(obj, **options)
