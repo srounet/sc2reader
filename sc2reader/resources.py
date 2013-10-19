@@ -419,6 +419,7 @@ class Replay(Resource):
                 entity.team.players.append(entity)
                 self.players.append(entity)
                 self.player[entity.pid] = entity
+                self.player_names.append(entity.name)
             else:
                 self.observers.append(entity)
                 self.observer[entity.uid] = entity
